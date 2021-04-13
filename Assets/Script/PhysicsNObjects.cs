@@ -33,12 +33,11 @@ public class PhysicsNObjects : MonoBehaviour
         }
         for (int i = 0; i < obj.Count; i++)
         {
-            for (int j = 0; j < obj.Count; j++)
+            for (int j = i+1; j < obj.Count; j++)
             {
                 if (j != i)
                 {
                     r = obj[i].position - obj[j].position;
-
                     d = r.magnitude;
                     r.Normalize();
                     obj[j].AddRelativeForce(r * G * obj[i].mass * obj[j].mass / (d * d), ForceMode.Force);
