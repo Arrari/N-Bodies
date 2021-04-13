@@ -40,7 +40,7 @@ public class PhysicsNObjects : MonoBehaviour
                     r = obj[i].position - obj[j].position;
                     d = r.magnitude;
                     r.Normalize();
-                    obj[j].AddRelativeForce(r * G * obj[i].mass * obj[j].mass / (d * d), ForceMode.Force);
+                    obj[i].AddRelativeForce(((r * G * obj[i].mass) / Mathf.Abs(d * d * d)), ForceMode.Force);
                 }
             }
         }
